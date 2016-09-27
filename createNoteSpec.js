@@ -11,5 +11,5 @@ describe("App", function(){
     app.createNote("Remember to code");
     expect(app.notes.length).toEqual(1);
   });
-
+ 
 });
