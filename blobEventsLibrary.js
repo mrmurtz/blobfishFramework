@@ -8,13 +8,11 @@ function BlobEvent(element){
 }
 
 BlobEvent.prototype = {
- ready: function(callback){
-  document.readyState != 'loading' ? callback() : document.addEventListener('DOMready', callback);
- }
+  ready: function(callback){
+    this.element.readyState != 'loading' ? callback() : this.element.addEventListener('DOMready', callback);
+  },
+
+  click: function(callback){
+    return this.element.callback();
+  }
 };
-
-
-// This is what you'll need to run to actually use the commands
-// blobListen(document).ready(function(){
-//
-// });
