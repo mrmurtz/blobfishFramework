@@ -6,7 +6,6 @@ blobListen('#document').ready(function(){
   blobListen('create').click(function(){
     var note = document.getElementById("new-note").value;
     app.createNote(note);
-    console.log(app.abbr_notes);
     document.getElementById('BlobList').appendChild(addLi());
     updateHomeDisplay();
   });
@@ -28,23 +27,10 @@ blobListen('#document').ready(function(){
   }
 
   function addLi() {
-    list = document.getElementbyId("BlobList");
     var item = document.createElement('li');
-    return item.appendChild(document.createTextNode(app.mapNotes().slice(-1)[0]));
+    var note = app.mapNotes().slice(-1)[0];
+    item.appendChild(document.createTextNode(note));
+    return item;
   }
-
-
-  // function updateOL() {
-  //
-  //   for (var i = 0; i < app.listNotes().length; i++) {
-  //     var item = document.createElement('li');
-  //     item.appendChild(document.createTextNode(app.listNotes()[i]));
-  //     list.appendChild(item);
-  //   }
-  //   console.log(list);
-  //   return list;
-  // }
-
-
 
 });
