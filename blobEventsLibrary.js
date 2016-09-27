@@ -14,5 +14,10 @@ BlobEvent.prototype = {
 
   click: function(callback){
     document.getElementById(this.element).addEventListener('click', callback, false);
+  },
+
+  show: function(){
+    document.getElementById(this.element).style.display = '';
   }
+
 };

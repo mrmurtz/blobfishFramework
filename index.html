@@ -3,32 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>Blobs</title>
-    <script src="blobEventsLibrary.js"></script>
-    <script src="src/app.js"></script>
   </head>
 
   <body>
-    <div class="uiCreateNote">
+
+    <div id="uiCreateNote">
       <input id="new-note" type="text" name="noteField" value="" placeholder="Type your blob here">
       <input id="create" type="button" name="createNoteButton" value="Create">
     </div>
-    <div class="uiList">
+    <div id="uiList">
       <ol>
         <a href="#"><li>Abbrv blobs will be listed</li></a>
       </ol>
     </div>
 
-    <script>
-    blobListen('#document').ready(function(){
-
-      var app = new App();
-
-      blobListen('create').click(function() {
-        var note = document.getElementById("new-note").value
-        app.createNote(note);
-      })
-    });
-    </script>
+    <script src="blobEventsLibrary.js"></script>
+    <script src="src/app.js"></script>
+    <script src="src/interface.js"></script>
 
   </body>
 </html>
