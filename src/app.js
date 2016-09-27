@@ -10,6 +10,12 @@ App.prototype = {
 
   showFull: function(index) {
     return this.notes[index];
+  },
+
+  listNotes: function() {
+    return this.notes.map(function(s) {
+      return s.slice(0,20);
+    });
   }
 
 };
