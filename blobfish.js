@@ -19,7 +19,7 @@ function Test(actual) {
 Test.prototype = {
 
   toEqual: function(expected) {
-    return this.actual == expected;
+    console.log(this.actual == expected);
   }
 
 };
