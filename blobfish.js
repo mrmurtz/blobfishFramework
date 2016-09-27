@@ -20,6 +20,10 @@ Test.prototype = {
 
   toEqual: function(expected) {
     console.log(this.actual == expected);
+  },
+
+  toContain: function(expected) {
+    console.log(this.actual.indexOf(expected) != -1 );
   }
 
 };
