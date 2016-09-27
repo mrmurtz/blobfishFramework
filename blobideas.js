@@ -24,3 +24,13 @@ var not = function(callback) {
   return this != callback.call(this);
 };
  // expect(error_message/typeoferror).when(user.validate(5555&^*))
+
+
+
+
+ blobListen(button).click(function(){
+
+ });
+
+
+ document.getElementById('myButton').addEventListener('click',function () { alert('hello!');},false);
