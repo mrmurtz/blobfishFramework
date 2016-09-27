@@ -23,7 +23,7 @@ Test.prototype = {
   },
 
   toContain: function(expected) {
-    console.log(this.actual.indexOf(expected) != -1 );
+    console.log(this.actual.indexOf(expected) != -1);
   }
 
 };
