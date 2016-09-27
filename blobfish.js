@@ -8,12 +8,18 @@ function describe(string, callback){
   callback();
 }
 
-var assert = {
-  isTrue: function(assertionToCheck) {
-    if (!assertionToCheck) {
-      console.log("Blob says FAIL: " + assertionToCheck + " is not truthy");
-    } else {
-      console.log("Blob says PASS!");
-    }
+function expect(actual) {
+  return new Test(actual);
+}
+
+function Test(actual) {
+  this.actual = actual;
+}
+
+Test.prototype = {
+
+  toEqual: function(expected) {
+    return this.actual == expected;
   }
+
 };
