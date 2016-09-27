@@ -9,7 +9,7 @@
   <body>
     <div class="uiCreateNote">
       <input type="text" name="noteField" value="" placeholder="Type your blob here">
-      <input type="button" name="createNoteButton" value="Create">
+      <input id="create" type="button" name="createNoteButton" value="Create">
     </div>
     <div class="uiList">
       <ol>
@@ -19,8 +19,11 @@
 
     <script>
     blobListen('#document').ready(function(){
-       alert("BLOB WORKS!");
-    });</script>
+      blobListen('create').click(function() {
+        alert("clicked!!!");
+      })
+    });
+    </script>
 
   </body>
 </html>

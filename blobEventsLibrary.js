@@ -13,6 +13,6 @@ BlobEvent.prototype = {
   },
 
   click: function(callback){
-    return this.element.callback();
+    document.getElementById(this.element).addEventListener('click', callback, false);
   }
 };
