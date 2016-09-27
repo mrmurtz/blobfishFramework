@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <title>Blobs</title>
     <script src="blobEventsLibrary.js"></script>
+    <script src="src/app.js"></script>
   </head>
 
   <body>
     <div class="uiCreateNote">
-      <input type="text" name="noteField" value="" placeholder="Type your blob here">
+      <input id="new-note" type="text" name="noteField" value="" placeholder="Type your blob here">
       <input id="create" type="button" name="createNoteButton" value="Create">
     </div>
     <div class="uiList">
@@ -19,8 +20,12 @@
 
     <script>
     blobListen('#document').ready(function(){
+
+      var app = new App();
+
       blobListen('create').click(function() {
-        alert("clicked!!!");
+        var note = document.getElementById("new-note").value
+        app.createNote(note);
       })
     });
     </script>

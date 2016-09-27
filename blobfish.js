@@ -1,6 +1,6 @@
 function it(string, callback){
   console.log(string);
-  callback();
+  console.log(callback());
 }
 
 function describe(string, callback){
@@ -19,11 +19,11 @@ function Test(actual) {
 Test.prototype = {
 
   toEqual: function(expected) {
-    console.log(this.actual == expected);
+    return this.actual == expected;
   },
 
   toContain: function(expected) {
-    console.log(this.actual.indexOf(expected) != -1 );
+    return this.actual.indexOf(expected) != -1;
   }
 
 };
