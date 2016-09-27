@@ -12,7 +12,7 @@ App.prototype = {
     return this.notes[index];
   },
 
-  listNotes: function() {
+  mapNotes: function() {
     return this.notes.map(function(s) {
       return s.slice(0,20);
     });
