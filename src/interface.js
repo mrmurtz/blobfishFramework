@@ -34,10 +34,7 @@ blobListen('#document').ready(function(){
     item.setAttribute("id", "headline-" + index);
     item.appendChild(document.createTextNode(headline));
     document.getElementById('full-view').appendChild(addArticle(index));
-    item.addEventListener('click', function(){
-      blobListen('container').hide();
-      blobListen('article-'+index).show();
-    }, false);
+    addLiListener(item, index);
     return item;
   }
 
@@ -47,16 +44,33 @@ blobListen('#document').ready(function(){
     article.setAttribute("id", "article-" + index);
     var fullNote = app.notes[index];
     article.appendChild(document.createTextNode(fullNote));
+    var button = createCloseBtn();
+    article.appendChild(button);
+    addCloseListener(button, index);
+    return article;
+  }
+
+  function createCloseBtn() {
     var close = document.createElement("input");
     close.setAttribute("id", "close");
     close.setAttribute("type", "submit");
     close.setAttribute("value", "close");
-    article.appendChild(close);
+    return close;
+  }
+
+  function addLiListener(item, index) {
+    item.addEventListener('click', function(){
+      blobListen('container').hide();
+      blobListen('article-'+index).show();
+    }, false);
+  }
+
+  function addCloseListener(close, index) {
     close.addEventListener('click', function(){
       blobListen('container').show();
       blobListen('article-'+index).hide();
     }, false);
-    return article;
   }
+
 
 });
