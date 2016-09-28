@@ -29,20 +29,48 @@ blobListen('#document').ready(function(){
 
   function addLi() {
     var item = document.createElement('li');
-    var note = app.mapNotes().slice(-1)[0];
-    var index = app.mapNotes().indexOf(note);
+    var headline = app.mapNotes().slice(-1)[0];
+    var index = app.mapNotes().lastIndexOf(headline);
     item.setAttribute("id", "headline-" + index);
-    item.appendChild(document.createTextNode(note));
+    item.appendChild(document.createTextNode(headline));
+    document.getElementById('full-view').appendChild(addArticle(index));
+    addLiListener(item, index);
+    return item;
+  }
+
+  function addArticle(index) {
     var article = document.createElement('p');
     article.setAttribute("style", "display:none");
     article.setAttribute("id", "article-" + index);
     var fullNote = app.notes[index];
     article.appendChild(document.createTextNode(fullNote));
-    item.appendChild(article);
+    var button = createCloseBtn();
+    article.appendChild(button);
+    addCloseListener(button, index);
+    return article;
+  }
+
+  function createCloseBtn() {
+    var close = document.createElement("input");
+    close.setAttribute("id", "close");
+    close.setAttribute("type", "submit");
+    close.setAttribute("value", "close");
+    return close;
+  }
+
+  function addLiListener(item, index) {
     item.addEventListener('click', function(){
+      blobListen('container').hide();
       blobListen('article-'+index).show();
     }, false);
-    return item;
   }
+
+  function addCloseListener(close, index) {
+    close.addEventListener('click', function(){
+      blobListen('container').show();
+      blobListen('article-'+index).hide();
+    }, false);
+  }
+
 
 });
