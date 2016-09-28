@@ -18,6 +18,11 @@ BlobEvent.prototype = {
 
   show: function(){
     document.getElementById(this.element).style.display = '';
+  },
+
+  hide: function(){
+    document.getElementById(this.element).style.display = 'none';
   }
+
 
 };
