@@ -29,6 +29,8 @@ blobListen('#document').ready(function(){
   function addLi() {
     var item = document.createElement('li');
     var note = app.mapNotes().slice(-1)[0];
+    var index = app.mapNotes().indexOf(note);
+    item.setAttribute("id", index);
     item.appendChild(document.createTextNode(note));
     return item;
   }
